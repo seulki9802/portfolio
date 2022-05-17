@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-// import {Transition, CSSTransition, SwitchTransition, TransitionGroup} from "react-transition-group";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import { useState } from 'react';
 
 import './App.css';
-import logo from './logo.svg';
 
 import Intro from './page/Intro'
 import Me from './page/Me'
@@ -13,6 +12,8 @@ import Contact from './page/Contact'
 
 function App() {
 
+  const [page, setPage] = useState(0);
+
   return (
     <div className="App">
 
@@ -20,14 +21,25 @@ function App() {
 
         <BrowserRouter>
 
-          <Links />
+          <Links pageState={ [page, setPage] } />
 
-          <Routes>
-            <Route path='/' element={ <Intro /> }></Route>
-            <Route path='/me' element={ <Me /> }></Route>
-            <Route path='/project' element={ <Project /> }></Route>
-            <Route path='/contact' element={ <Contact /> }></Route>
-          </Routes>
+          <SwitchTransition mode={ 'out-in' }>
+
+            <CSSTransition
+              key={ page }
+              addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
+              classNames="page"
+            >
+              <Routes>
+                <Route path='/' element={ <Intro /> }></Route>
+                <Route path='/me' element={ <Me /> }></Route>
+                <Route path='/project' element={ <Project /> }></Route>
+                <Route path='/contact' element={ <Contact /> }></Route>
+              </Routes>
+
+            </CSSTransition>
+
+          </SwitchTransition>
 
         </BrowserRouter>
 
@@ -37,9 +49,16 @@ function App() {
   );
 }
 
-function Links() {
+function Links({ pageState }) {
+
+  const [page, setPage] = pageState;
+
+  function changePage() {
+    setPage(page + 1)
+  }
+
   return(
-    <div className='pages'>
+    <div className='pages' onClick={ changePage }>
       <Link to='/'>zero, </Link>
       <Link to='/me'>first, </Link>
       <Link to='/project'>second, </Link>
