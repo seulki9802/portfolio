@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import {Transition, CSSTransition, SwitchTransition, TransitionGroup} from "react-transition-group";
+import {CSSTransition, SwitchTransition} from "react-transition-group";
 import { useState } from 'react';
 
 import logo from '../logo.svg';
