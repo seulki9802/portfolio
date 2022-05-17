@@ -3,6 +3,8 @@ import {Transition, CSSTransition, SwitchTransition, TransitionGroup} from "reac
 import { useState } from 'react';
 
 import logo from '../logo.svg';
+import '../App.css';
+
 
 function Intro({introState}) {
 
@@ -28,22 +30,33 @@ function Intro({introState}) {
     ]
   
     const [intro, setIntro] = useState(intros[0])
+    const [showIntro, setShowIntro] = useState(false)
     
     function changeIntro(e){
       setIntro(intros[e.target.innerHTML])
+      setShowIntro(!showIntro)
     }
-  
   
     return(
       <>
-  
-        <div className='intro'>
-          <h1 className='App-logo'>{ intro.id }</h1>
-          <img src={logo} className="App-logo" alt="logo" />
-          
-          <h1>{ intro.title }</h1>
-          <p>{ intro.description }</p>
-        </div>
+        <SwitchTransition mode={'out-in'}>
+
+          <CSSTransition
+            key={ intro.id }
+            addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
+            classNames="intro"
+          >
+            <div className='intro'>
+              <h1 className='App-logo'>{ intro.id }</h1>
+              <img src={logo} className="App-logo" alt="logo" />
+              
+              <h1>{ intro.title }</h1>
+              <p>{ intro.description }</p>
+            </div>
+          </CSSTransition>
+        
+        </SwitchTransition>
+
   
         <div className='page'>
           <Link to={ intro.link }>Lear More</Link>
