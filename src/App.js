@@ -21,7 +21,7 @@ function App() {
 
         <BrowserRouter>
 
-          <Links pageState={ [page, setPage] } />
+          <Links setPage={ setPage } />
 
           <SwitchTransition mode={ 'out-in' }>
 
@@ -31,7 +31,7 @@ function App() {
               classNames="page"
             >
               <Routes>
-                <Route path='/' element={ <Intro /> }></Route>
+                <Route path='/' element={ <Intro setPage={ setPage } /> }></Route>
                 <Route path='/me' element={ <Me /> }></Route>
                 <Route path='/project' element={ <Project /> }></Route>
                 <Route path='/contact' element={ <Contact /> }></Route>
@@ -49,18 +49,11 @@ function App() {
   );
 }
 
-function Links({ pageState }) {
-
-  const [page, setPage] = pageState;
+function Links({ setPage }) {
 
   function changePage(e) {
     setPage(e.target.id)
   }
-
-  function test(e) {
-    console.log(e.target.id)
-  }
-
   return(
     <div className='links'>
       <ul onClick={ changePage }>

@@ -6,23 +6,23 @@ import logo from '../logo.svg';
 import '../App.css';
 
 
-function Intro({introState}) {
+function Intro({ setPage }) {
 
     const intros = [
       {
-        id : 0,
+        id : 1,
         title: 'SEULKI SEULKI SEULKI SEULKI SEULKI SEULKI',
         description: 'Hi, I\'m SeulKi',
         link : '/me'
       },
       {
-        id : 1,
+        id : 2,
         title: 'MY PROJECTS! MY PROJECTS!',
         description: 'I studied Python, JS, HTML, React, NodeJs',
         link : '/project'
       },
       {
-        id : 2,
+        id : 3,
         title: 'INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?',
         description: 'Contac me!',
         link : '/contact'
@@ -36,10 +36,14 @@ function Intro({introState}) {
       setIntro(intros[e.target.innerHTML])
       setShowIntro(!showIntro)
     }
+
+    function changePage(e){
+      setPage(e.target.id)
+    }
   
     return(
       <>
-        <SwitchTransition mode={'out-in'}>
+        <SwitchTransition mode={ 'out-in' }>
 
           <CSSTransition
             key={ intro.id }
@@ -53,13 +57,14 @@ function Intro({introState}) {
               <h1>{ intro.title }</h1>
               <p>{ intro.description }</p>
             </div>
+            
           </CSSTransition>
         
         </SwitchTransition>
 
   
-        <div className='page'>
-          <Link to={ intro.link }>Lear More</Link>
+        <div className='toPage'>
+          <Link to={ intro.link } id={ intro.id } onClick={ changePage }>Lear More</Link>
         </div>
   
         <div className='introButtons'>
