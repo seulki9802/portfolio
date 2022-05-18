@@ -30,11 +30,9 @@ function Intro({ setPage }) {
     ]
   
     const [intro, setIntro] = useState(intros[0])
-    const [showIntro, setShowIntro] = useState(false)
     
     function changeIntro(e){
       setIntro(intros[e.target.innerHTML])
-      setShowIntro(!showIntro)
     }
 
     function changePage(e){
