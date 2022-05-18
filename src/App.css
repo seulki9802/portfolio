@@ -24,8 +24,22 @@
   color: white;
 }
 
-.App-link {
+.links {
+  position: absolute;
+  top: 1.5vh;
+  font-size: 3vh;
+}
+
+.links ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.links li {
   color: #61dafb;
+  display: inline;
+  margin-right: 20px;
 }
 
 .App-center {
@@ -68,17 +82,15 @@
   transition: opacity 300ms, transform 300ms; */
 }
 
-
-
 .page-enter {
   opacity: 0;
-  transform: translateY(100%);
+  /* transform: translateY(100%); */
 }
 
 .page-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 300ms, transform 300ms;
+  transition: opacity 3000ms;
 }
 
 .page-exit {

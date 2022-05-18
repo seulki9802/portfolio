@@ -53,16 +53,22 @@ function Links({ pageState }) {
 
   const [page, setPage] = pageState;
 
-  function changePage() {
-    setPage(page + 1)
+  function changePage(e) {
+    setPage(e.target.id)
+  }
+
+  function test(e) {
+    console.log(e.target.id)
   }
 
   return(
-    <div className='pages' onClick={ changePage }>
-      <Link to='/'>zero, </Link>
-      <Link to='/me'>first, </Link>
-      <Link to='/project'>second, </Link>
-      <Link to='/contact'>third</Link> 
+    <div className='links'>
+      <ul onClick={ changePage }>
+        <Link to='/' ><li id='0'>zero</li></Link>
+        <Link to='/me' ><li id='1'>frist</li></Link>
+        <Link to='/project' ><li id='2'>second</li></Link>
+        <Link to='/contact' ><li id='3'>third</li></Link> 
+      </ul>
     </div>
   )
 }
