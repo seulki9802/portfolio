@@ -96,5 +96,37 @@
 }
 
 .Me img {
+  height: 10vh;
+}
+
+.Me-box {
   height: 40vh;
+  width: 50vw;
+  float: left;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Me-listFade-enter {
+  opacity: 0;
+}
+
+.Me-listFade-exit {
+  opacity: 1;
+}
+
+.Me-listFade-enter-active {
+  opacity: 1;
+}
+
+.Me-listFade-exit-active {
+  opacity: 0;
+}
+
+.Me-listFade-enter-active,
+.Me-listFade-exit-active {
+  transition: opacity 500ms;
 }
