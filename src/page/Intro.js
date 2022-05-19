@@ -3,7 +3,6 @@ import {CSSTransition, SwitchTransition} from "react-transition-group";
 import { useState } from 'react';
 
 import logo from '../logo.svg';
-import '../App.css';
 
 
 function Intro({ setPage }) {
@@ -40,38 +39,35 @@ function Intro({ setPage }) {
     }
   
     return(
-      <>
-        <SwitchTransition mode={ 'out-in' }>
+      <div className="Intro">
+        <SwitchTransition mode={ "out-in" }>
 
           <CSSTransition
             key={ intro.id }
             addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
-            classNames="intro"
+            classNames="Intro-transition"
           >
-            <div className='intro'>
-              <h1 className='App-logo'>{ intro.id }</h1>
-              <img src={logo} className="App-logo" alt="logo" />
+            <div>
+              <h1 className="Intro-logo">{ intro.id }</h1>
+              <img src={logo} className="Intro-logo" alt="logo" />
               
               <h1>{ intro.title }</h1>
               <p>{ intro.description }</p>
+              <Link to={ intro.link } id={ intro.id } onClick={ changePage }>Lear More</Link>
             </div>
             
           </CSSTransition>
         
         </SwitchTransition>
 
-  
-        <div className='toPage'>
-          <Link to={ intro.link } id={ intro.id } onClick={ changePage }>Lear More</Link>
-        </div>
-  
-        <div className='introButtons'>
+        <div>
           <button onClick={ changeIntro }>0</button>
           <button onClick={ changeIntro }>1</button>
           <button onClick={ changeIntro }>2</button>
         </div>
   
-      </>
+  
+      </div>
     )
   
   }

@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 10vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 3s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,33 +13,57 @@
   color: white;
 }
 
-.links {
+.App-links {
   position: absolute;
   top: 1.5vh;
   font-size: 3vh;
 }
 
-.links ul {
+.App-links ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
 
-.links li {
+.App-links li {
   color: #61dafb;
   display: inline;
   margin-right: 20px;
 }
 
-.App-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.App-pageTransition-enter {
+  opacity: 0;
+  /* transform: translateY(100%); */
 }
 
-@keyframes App-logo-spin {
+.App-pageTransition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 3000ms;
+}
+
+.App-pageTransition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.App-pageTransition-exit-active {
+  opacity: 0;
+  transition: opacity 0.1ms;
+}
+
+.Intro-logo {
+  height: 10vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Intro-logo {
+    animation: Intro-logo-spin infinite 3s linear;
+  }
+}
+
+@keyframes Intro-logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -59,46 +72,29 @@
   }
 }
 
-.intro-enter {
+.Intro-transition-enter {
   opacity: 0;
   transform: translateX(-100%);
 }
 
-.intro-enter-active {
+.Intro-transition-enter-active {
   opacity: 1;
   transform: translateX(0);
   transition: opacity 300ms, transform 300ms;
 }
 
-.intro-exit {
+.Intro-transition-exit {
   opacity: 1;
   transform: translateX(0);
 }
 
-.intro-exit-active {
+.Intro-transition-exit-active {
   opacity: 0;
   transition: opacity 300ms;
   /* transform: translateX(-100%);
   transition: opacity 300ms, transform 300ms; */
 }
 
-.page-enter {
-  opacity: 0;
-  /* transform: translateY(100%); */
-}
-
-.page-enter-active {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 3000ms;
-}
-
-.page-exit {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.page-exit-active {
-  opacity: 0;
-  transition: opacity 0.1ms;
+.Me img {
+  height: 40vh;
 }

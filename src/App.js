@@ -28,7 +28,7 @@ function App() {
             <CSSTransition
               key={ page }
               addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
-              classNames="page"
+              classNames="App-pageTransition"
             >
               <Routes>
                 <Route path='/' element={ <Intro setPage={ setPage } /> }></Route>
@@ -55,7 +55,7 @@ function Links({ setPage }) {
     setPage(e.target.id)
   }
   return(
-    <div className='links'>
+    <div className='App-links'>
       <ul onClick={ changePage }>
         <Link to='/' ><li id='0'>zero</li></Link>
         <Link to='/me' ><li id='1'>frist</li></Link>
