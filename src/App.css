@@ -100,8 +100,11 @@
 }
 
 .Me-box {
-  height: 40vh;
-  width: 50vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 5vh;
+  height: 30vh;
+  width: 30vw;
   float: left;
 
   display: flex;
@@ -110,23 +113,10 @@
   justify-content: center;
 }
 
-.Me-listFade-enter {
+.Me-item {
   opacity: 0;
+  transform: 0.3s ease-in;
 }
-
-.Me-listFade-exit {
+.Me-item.Me-active {
   opacity: 1;
-}
-
-.Me-listFade-enter-active {
-  opacity: 1;
-}
-
-.Me-listFade-exit-active {
-  opacity: 0;
-}
-
-.Me-listFade-enter-active,
-.Me-listFade-exit-active {
-  transition: opacity 500ms;
 }
