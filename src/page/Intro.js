@@ -4,27 +4,36 @@ import { useState } from 'react';
 
 import logo from '../logo.svg';
 
-
 function Intro({ setPage }) {
 
     const intros = [
       {
+        id : 0,
+        title: 'HI!',
+        description: 'Hi, I\'m SeulKi',
+        link : '/',
+        background: 'white'
+      },
+      {
         id : 1,
         title: 'SEULKI SEULKI SEULKI SEULKI SEULKI SEULKI',
         description: 'Hi, I\'m SeulKi',
-        link : '/me'
+        link : '/me',
+        background: 'green'
       },
       {
         id : 2,
         title: 'MY PROJECTS! MY PROJECTS!',
         description: 'I studied Python, JS, HTML, React, NodeJs',
-        link : '/project'
+        link : '/project',
+        background: 'red'
       },
       {
         id : 3,
         title: 'INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?',
         description: 'Contac me!',
-        link : '/contact'
+        link : '/contact',
+        background: 'yellow'
       }
     ]
   
@@ -37,7 +46,7 @@ function Intro({ setPage }) {
     function changePage(e){
       setPage(e.target.id)
     }
-  
+
     return(
       <div className="Intro">
         <SwitchTransition mode={ "out-in" }>
@@ -61,9 +70,9 @@ function Intro({ setPage }) {
         </SwitchTransition>
 
         <div>
-          <button onClick={ changeIntro }>0</button>
-          <button onClick={ changeIntro }>1</button>
-          <button onClick={ changeIntro }>2</button>
+          {intros.map((intro) => {
+            return <button key={ intro.id } onClick={ changeIntro }>{ intro.id }</button>
+            })}
         </div>
   
   
