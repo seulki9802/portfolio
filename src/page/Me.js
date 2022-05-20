@@ -1,87 +1,58 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion'
-// import me from '../assets/me.jpeg';
-
+import {CSSTransition, TransitionGroup} from "react-transition-group";
+  
 function Me() {
+
+  const [items0, setItems] = useState([]);
+  const [items1, setItems1] = useState([]);
+  const [items2, setItems2] = useState([]);
 
   const myThings = [
     {
       title: '나의 재미',
-      things: ['새로운 것', '관찰하는 것', '해결하는 것'],
-      show: 0
+      things: ['😮 새로운 것', '🧐 관찰하는 것', '😎 해결하는 것'],
+      item: items0
     },
     {
       title: '나의 보람',
-      things: ['도와주는 것', '해결하는 것'],
-      show: 0
-    },
-    {
-      title: '나의 부족',
-      things: ['경험의 부족', '판단하는 것'],
-      show: 0
+      things: ['🤲 도와주는 것', '✍️ 해결하는 것'],
+      item: items1
     },
     {
       title: '나의 소망',
-      things: ['다양한 경험', '멋진 리더로의 성장'],
-      show: 0
+      things: ['👧 다양한 경험', '👩‍🦳 멋진 리더로의 성장'],
+      item: items2
     }
   ]
 
-  const [show, setShow] = useState([0, 0, 0, 0])
-
-  function showList(e) {
-    var clonseShow = Array.from(show)
-    clonseShow[e.target.id] = 1;
-    setShow(clonseShow)
-  }
-
-  function container(show) {
-    return {
-      hidden: { opacity: 1, scale: 0 },
-      visible: {
-        opacity: show,
-        scale: 1,
-        transition: {
-          delayChildren: 0.1,
-          staggerChildren: 0.1
-        }
-      }
-    }
-  }
-
-  function item(show) {
-    return {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: show
-      }
-    }
+  if (items0.length < myThings[0].things.length) {
+    setTimeout(() => { setItems([...items0, myThings[0].things[items0.length]]) }, 300)
+  } else if (items1.length < myThings[1].things.length) {
+    setTimeout(() => { setItems1([...items1, myThings[1].things[items1.length]]) }, 300)
+  } else if (items2.length < myThings[2].things.length) {
+    setTimeout(() => { setItems2([...items2, myThings[2].things[items2.length]]) }, 300)
   }
 
   return (
     <div className="Me">
 
-      {myThings.map((things, index) => {
+      {myThings.map((things) => {
         return(
-          <div key={ index } id={ index } className="Me-box" onMouseMove={ showList }>
-            { things.title }
-            <motion.ul
-              variants={ container(show[index])}
-              initial="hidden"
-              animate="visible"
-            >
-              {things.things.map((i, index2) => (
-              <motion.li key={ index2 } variants={ item(show[index]) }>{ i }</motion.li>
+          <div key={ things.title } className='Me-box'>
+            <h2>{ things.title }</h2>
+            <TransitionGroup>
+              {things.item.map(( item, index ) => (
+                <CSSTransition key={index} timeout={500} classNames="Me-list">
+                <p>{item}</p>
+                </CSSTransition>
               ))}
-            </motion.ul>
+            </TransitionGroup>
           </div>
         )
       })}
 
     </div>
   );
-}
-  
-  
-  export default Me;
-  
+  }
+
+export default Me;
