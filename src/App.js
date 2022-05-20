@@ -33,13 +33,17 @@ function App() {
               <Routes>
                 <Route path='/' element={ <Intro setPage={ setPage } /> }></Route>
                 <Route path='/me' element={ <Me /> }></Route>
-                <Route path='/project' element={ <Project /> }></Route>
+                {/* <Route path='/project' element={ <Project /> }></Route> */}
                 <Route path='/contact' element={ <Contact /> }></Route>
               </Routes>
 
             </CSSTransition>
 
           </SwitchTransition>
+
+          <Routes>
+            <Route path='/project' element={ <Project /> }></Route>
+          </Routes>
 
         </BrowserRouter>
 
