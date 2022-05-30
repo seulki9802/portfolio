@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { CSSTransition, SwitchTransition } from "react-transition-group";
+import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+// import { CSSTransition, SwitchTransition } from "react-transition-group";
+import { motion } from "framer-motion";
 import { useState } from 'react';
 
 import './App.css';
@@ -11,40 +12,38 @@ import Contact from './page/Contact';
 
 
 function App() {
-
   const [page, setPage] = useState(0);
+  const [scale, setscale] = useState(0);
+
+  if (scale === 0) {
+
+    setTimeout(() => {
+      setscale(1)
+    }, 100)
+
+  }
 
   return (
     <div className="App">
 
       <header className="App-header">
 
-        <BrowserRouter>
+          
+          <BrowserRouter>
 
-          <Links setPage={ setPage } />
+            <Links setPage={ setPage } scaleState={ [scale, setscale] } />
 
-          <SwitchTransition mode={ 'out-in' }>
-
-            <CSSTransition
-              key={ page }
-              addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
-              classNames="App-pageTransition"
-            >
+            <motion.div initial={{ scale: 0 }} animate={{ scale: scale }} >
               <Routes>
                 <Route path='/' element={ <Intro setPage={ setPage }/> } />
                 <Route path='/me' element={ <Me /> } />
                 <Route path='/contact' element={ <Contact /> } />
+                <Route path='/project' element={ <Project /> }></Route>
               </Routes>
+            </motion.div>
 
-            </CSSTransition>
+          </BrowserRouter>
 
-          </SwitchTransition>
-
-          <Routes>
-            <Route path='/project' element={ <Project /> }></Route>
-          </Routes>
-
-        </BrowserRouter>
 
       </header>
 
@@ -52,10 +51,12 @@ function App() {
   );
 }
 
-function Links({ setPage }) {
+function Links({ setPage, scaleState }) {
 
   function changePage(e) {
-    setPage(e.target.name)
+    const [scale, setscale] = scaleState
+    setPage(e.target.getAttribute('name'))
+    setscale(0)
   }
   return(
     <div className='App-links'>
@@ -70,3 +71,17 @@ function Links({ setPage }) {
 }
 
 export default App;
+
+
+
+{/* <SwitchTransition mode={ 'out-in' }>
+
+  <CSSTransition
+    key={ page }
+    addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
+    classNames="App-pageTransition"
+  >
+
+  </CSSTransition>
+
+</SwitchTransition> */}
