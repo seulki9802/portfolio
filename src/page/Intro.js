@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import {CSSTransition, SwitchTransition} from "react-transition-group";
 import { useState } from 'react';
-import $ from 'jquery';
+import { animate, motion } from "framer-motion";
 
 // import logo from '../logo.svg';
 
@@ -39,84 +38,74 @@ function Intro({ setPage }) {
   ]
 
   const [intro, setIntro] = useState(intros[0])
+  const [rotate, setRotate] = useState(0)
   const [buttonActive, setButtonActive] = useState(['Intro-active', '', '', ''])
   
   document.querySelector('body').style.backgroundColor = intro.background;
 
-  function changeIntro(id) {
-    clearTimeout(streamIntro)
+  if (rotate !==0 ) {
+    setTimeout(() => {
+      setRotate(0)
+      clearTimeout(streamIntro)
+    }, 100)
+  }
+
+  function changeIntro(e) {
+    // change intro
+    var id = parseInt(e.target.getAttribute('name'));
     setIntro(intros[id])
 
+    // change button
     var ls = ['', '', '', ''];
     ls[id] = 'Intro-active';
     setButtonActive(ls)
-  }
-
-  function changePage(e){
-    setPage(e.target.id)
-  }
-
-  function clickIntro(e){
-    var click = e.target.name;
-    changeIntro(click)
+    
+    // animate intro
+    var now = intro.id;
+    var next = id;
+    if (now > next) setRotate(-10)
+    else if (now < next) setRotate(10)
+    else setRotate(0)
   }
 
   const streamIntro = setTimeout(() => {
-    var now = intro.id
-    var next;
-    if ( now === 3 ) next = 0;
-    else next = now + 1;
-    changeIntro(next)
+    var now = intro.id;
+    var next = now + 1;
+    if ( next >= intros.length ) next = 0
+    var ele = document.createElement('span');
+    ele.setAttribute('name', next);
 
-  }, 3000)
+    changeIntro({ target: ele })
 
-  function addClass(e) {
-    console.log(e)
-    // e.target.classList.add('Intro-title-hover')
-  }
-
-  function rmClass(e) {
-    e.target.classList.remove('Intro-title-hover')
-  }
-
+  }, 1000)
 
   return(
     <div className="Intro">
-      <SwitchTransition mode={ "out-in" }>
 
-        <CSSTransition
-          key={ intro.id }
-          addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
-          classNames="Intro-transition"
-        >
-          <div className='Intro-intro'>
+      <motion.div initial={{ rotate: 0 }} animate={{ rotate: rotate }} className="Intro-intro">
 
-            {
-              Array.from(intro.title).map((letter, index) => {
-                if (letter === ' ') return <br key={ index } />
-                return <span key={ index } className='Intro-title' id={ intro.title + index }>{ letter }</span>
-              })
-            }
-            <p>{ intro.description }</p>
-            <Link to={ intro.link } onClick={ changePage } className='Intro-link'>Lear More</Link>
+        {Array.from(intro.title).map((letter, index) => {
+          if (letter === ' ') return <br key={ index } />
+          return <span key={ index } className='Intro-title' id={ intro.title + index }>{ letter }</span>
+        })}
 
-          </div>
-          
-        </CSSTransition>
-      
-      </SwitchTransition>
+        <p>{ intro.description }</p>
+
+        <Link to={ intro.link } className='Intro-link'>Lear More</Link>
+
+      </motion.div>
 
       <div className='Intro-buttons'>
-        {
-          intros.map( (intro) => {
-            return <button
-                    key={ intro.id }
-                    name={ intro.id }
-                    className={ 'Intro-button ' + buttonActive[intro.id]}
-                    onClick={ clickIntro }
-                  />
-          })
-        }
+
+        {intros.map( (intro) => {
+          return <button
+                  key={ intro.id }
+                  name={ intro.id }
+                  className={ 'Intro-button ' + buttonActive[intro.id]}
+                  onClick={ changeIntro }
+                />
+        })}
+
       </div>
     </div>
   )
