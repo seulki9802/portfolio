@@ -4,10 +4,10 @@ import { useState } from 'react';
 
 import './App.css';
 
-import Intro from './page/Intro'
-import Me from './page/Me'
-import Project from './page/Project'
-import Contact from './page/Contact'
+import Intro from './page/Intro';
+import Me from './page/Me';
+import Project from './page/Project';
+import Contact from './page/Contact';
 
 
 function App() {
@@ -31,9 +31,9 @@ function App() {
               classNames="App-pageTransition"
             >
               <Routes>
-                <Route path='/' element={ <Intro setPage={ setPage } /> }></Route>
-                <Route path='/me' element={ <Me /> }></Route>
-                <Route path='/contact' element={ <Contact /> }></Route>
+                <Route path='/' element={ <Intro setPage={ setPage }/> } />
+                <Route path='/me' element={ <Me /> } />
+                <Route path='/contact' element={ <Contact /> } />
               </Routes>
 
             </CSSTransition>
@@ -55,15 +55,15 @@ function App() {
 function Links({ setPage }) {
 
   function changePage(e) {
-    setPage(e.target.id)
+    setPage(e.target.name)
   }
   return(
     <div className='App-links'>
       <ul onClick={ changePage }>
-        <Link to='/' ><li id='0'>zero</li></Link>
-        <Link to='/me' ><li id='1'>frist</li></Link>
-        <Link to='/project' ><li id='2'>second</li></Link>
-        <Link to='/contact' ><li id='3'>third</li></Link> 
+        <Link to='/' ><li name='0'>zero</li></Link>
+        <Link to='/me' ><li name='1'>first</li></Link>
+        <Link to='/project' ><li name='2'>second</li></Link>
+        <Link to='/contact' ><li name='3'>third</li></Link> 
       </ul>
     </div>
   )

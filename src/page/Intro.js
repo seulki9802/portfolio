@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import {CSSTransition, SwitchTransition} from "react-transition-group";
 import { useState } from 'react';
+import $ from 'jquery';
 
 // import logo from '../logo.svg';
 
@@ -9,43 +10,55 @@ function Intro({ setPage }) {
   const intros = [
     {
       id : 0,
-      title: 'HI!',
+      title: 'HELLO! I\'M SEULKI',
       description: 'Hi, I\'m SeulKi',
-      link : '/',
-      background: 'white'
+      link : '/me',
+      background: '#FFD5E5'
     },
     {
       id : 1,
-      title: 'SEULKI SEULKI SEULKI SEULKI SEULKI SEULKI',
+      title: 'ABOUT ME',
       description: 'Hi, I\'m SeulKi',
       link : '/me',
-      background: 'green'
+      background: '#9896F1'
     },
     {
       id : 2,
-      title: 'MY PROJECTS! MY PROJECTS!',
+      title: 'MY PROJECTS!',
       description: 'I studied Python, JS, HTML, React, NodeJs',
       link : '/project',
-      background: 'red'
+      background: '#D59BF6'
     },
     {
       id : 3,
-      title: 'INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?INTERSTED?',
+      title: 'INTERESTED?',
       description: 'Contac me!',
       link : '/contact',
-      background: 'yellow'
+      background: '#EDB1F1'
     }
   ]
 
   const [intro, setIntro] = useState(intros[0])
+  const [buttonActive, setButtonActive] = useState(['Intro-active', '', '', ''])
+  
+  document.querySelector('body').style.backgroundColor = intro.background;
 
-  function changeIntro(e){
+  function changeIntro(id) {
     clearTimeout(streamIntro)
-    setIntro(intros[e.target.innerHTML])
+    setIntro(intros[id])
+
+    var ls = ['', '', '', ''];
+    ls[id] = 'Intro-active';
+    setButtonActive(ls)
   }
 
   function changePage(e){
     setPage(e.target.id)
+  }
+
+  function clickIntro(e){
+    var click = e.target.name;
+    changeIntro(click)
   }
 
   const streamIntro = setTimeout(() => {
@@ -53,9 +66,19 @@ function Intro({ setPage }) {
     var next;
     if ( now === 3 ) next = 0;
     else next = now + 1;
-    clearTimeout(streamIntro)
-    setIntro(intros[next])
-  }, 2000)
+    changeIntro(next)
+
+  }, 3000)
+
+  function addClass(e) {
+    console.log(e)
+    // e.target.classList.add('Intro-title-hover')
+  }
+
+  function rmClass(e) {
+    e.target.classList.remove('Intro-title-hover')
+  }
+
 
   return(
     <div className="Intro">
@@ -66,26 +89,35 @@ function Intro({ setPage }) {
           addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
           classNames="Intro-transition"
         >
-          <div>
-            <h1 className="Intro-logo">{ intro.id }</h1>
-            {/* <img src={logo} classNamz="Intro-logo" alt="logo" /> */}
-            
-            <h1>{ intro.title }</h1>
+          <div className='Intro-intro'>
+
+            {
+              Array.from(intro.title).map((letter, index) => {
+                if (letter === ' ') return <br key={ index } />
+                return <span key={ index } className='Intro-title' id={ intro.title + index }>{ letter }</span>
+              })
+            }
             <p>{ intro.description }</p>
-            <Link to={ intro.link } id={ intro.id } onClick={ changePage }>Lear More</Link>
+            <Link to={ intro.link } onClick={ changePage } className='Intro-link'>Lear More</Link>
+
           </div>
           
         </CSSTransition>
       
       </SwitchTransition>
 
-      <div>
-        {intros.map((intro) => {
-          return <button key={ intro.id } onClick={ changeIntro }>{ intro.id }</button>
-          })}
+      <div className='Intro-buttons'>
+        {
+          intros.map( (intro) => {
+            return <button
+                    key={ intro.id }
+                    name={ intro.id }
+                    className={ 'Intro-button ' + buttonActive[intro.id]}
+                    onClick={ clickIntro }
+                  />
+          })
+        }
       </div>
-
-
     </div>
   )
 

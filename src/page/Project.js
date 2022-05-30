@@ -7,7 +7,7 @@ const container = {
     scale: 1,
     transition: {
       delayChildren: 0.3,
-      staggerChildren: 0.2
+      staggerChildren: 0.3
     }
   }
 };
@@ -21,6 +21,8 @@ const item = {
 };
 
 function Project() {
+  
+  document.querySelector('body').style.backgroundColor = '#D59BF6';
 
   return(
     <div className="Project">
@@ -31,7 +33,7 @@ function Project() {
       initial="hidden"
       animate="visible"
     >
-      {[1, 2, 3].map((i, index) => (
+      {['게임, 랭킹', '메모, 채팅', '커뮤니티?', '내 포트폴리오'].map((i, index) => (
         <motion.li key={index} className="Project-item" variants={item}>
           { i }
         </motion.li>

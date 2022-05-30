@@ -1,5 +1,17 @@
 body {
-  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+  /* background-color: #F6F6F6; */
+  /* background-color: #282c34; */
+  /* background-color: #61dafb; */
+  /* background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%); */
+  /* background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); */
+  /* color: #8785A2; */
+  color: #F6F6F6
+}
+
+a {
+  text-decoration: none;
+  color: #F6F6F6
+  /* color: #FFC7C7; */
 }
 
 .App {
@@ -7,28 +19,31 @@ body {
 }
 
 .App-header {
+  /* background-color: #F6F6F6; */
+  /* background-color: #282c34; */
+
   /* background: linear-gradient(180deg, #DEFCF9, #CCA8E9); */
-  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+  /* background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%); */
   /* background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%); */
   /* background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); */
   
-  min-height: 90vh;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: calc(15px + 2vmin);
+  /* color: #8785A2; */
 
   margin-top: 5vh;
-  margin-bottom: 5vh;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  /* margin-bottom: 5vh; */
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 .App-links {
   position: absolute;
-  top: 5.5vh;
+  top:1vh;
   font-size: 3vh;
 }
 
@@ -39,7 +54,8 @@ body {
 }
 
 .App-links li {
-  color: white;
+  /* color: #61dafb; */
+  /* color: #8785A2; */
   display: inline;
   margin-right: 20px;
 }
@@ -52,7 +68,7 @@ body {
 .App-pageTransition-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: opacity 3000ms;
+  transition: opacity 1000ms;
 }
 
 .App-pageTransition-exit {
@@ -64,6 +80,54 @@ body {
   opacity: 0;
   transition: opacity 0.1ms;
 }
+
+
+
+
+
+
+.Intro-intro {
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+}
+
+.Intro-title {
+  display: inline-block;
+  font-size: calc(100px + 2vmin);
+  font-weight: bold;
+  transition: 300ms;
+}
+
+.Intro-title-hover {
+    color: #8785A2;
+  transform: scale(1.5);
+}
+
+.Intro-title:hover {
+  color: #8785A2;
+  transform: scale(1.5);
+}
+
+.Intro-button {
+  width: 15px;
+  height: 15px;
+  color: white;
+  border: 1px solid;
+  border-radius: 100%;
+  background-color: rgb(0, 0, 0, 0);
+  margin-left: 1vw;
+  margin-right: 1vw;
+  transition: 300ms;
+}
+
+.Intro-active {
+  background-color: white;
+}
+
+.Intro button:hover {
+  background-color: white;
+}
+
 
 .Intro-logo {
   height: 10vmin;
@@ -108,52 +172,41 @@ body {
   transition: opacity 300ms, transform 300ms; */
 }
 
+
+
+
 .Me img {
-  height: 10vh;
-}
-
-.Me-box {
   height: 30vh;
-  width: 30vw;
-  float: left;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  /* border: solid 1px; */
 }
 
-.Me-list-enter {
-  opacity: 0;
-  transform:translateX(-100%);
+.Me-container {
+  list-style: none;
+  padding: 15px;
 }
-.Me-list-enter-active {
-  opacity: 1;
-  transform:translateX(0);
-  transition: opacity 300ms, transform 300ms;
+
+.Me-item {
+  /* background-color: #282c34; */
+  text-align: left;
+  /* font-size: calc(10px + 2vmin); */
 }
-.Me-list-exit {
-  opacity: 1;
-  transform:translateX(0);
-}
-.Me-list-exit-active {
-  opacity: 0;
-  transform:translateX(-100%);
-  transition: opacity 300ms, transform 300ms;
-}
+
+
+
+
+
+
+
+
 
 
 .Project-container {
-  width: 80vw;
-  height: 80vh;
+  width: 75vw;
+  height: 75vh;
   display: grid;
   overflow: hidden;
-  margin-top: 10vh;
   list-style: none;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 15px;
   padding: 15px;
   background: rgba(255, 255, 255, 0.2);
@@ -162,11 +215,12 @@ body {
 
 .Project-item {
   
-  background: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255); */
+  background-color: #282c34;
   border-radius: 20px;
   
   margin: 3vw;
-  color: #40f;
+  color: #61dafb;
   display: flex;
   flex-direction: column;
   align-items: center;
