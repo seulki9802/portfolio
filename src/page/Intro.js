@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 
 function Intro({ setPage }) {
 
-  console.log('rendering!')
-
   const intros = [
     {
       id : 0,
@@ -37,19 +35,10 @@ function Intro({ setPage }) {
     }
   ]
 
-  const [intro, setIntro] = useState(intros[0])
-  // const [rotate, setRotate] = useState(0)
+  const [intro, setIntro] = useState(intros[0]);
+  const [rotateDir, setRotateDir] = useState(100);
   
   document.querySelector('body').style.backgroundColor = intro.background;
-
-  // if (rotate !==0 ) {
-
-  //   setTimeout(() => {
-  //     clearTimeout(streamIntro)
-  //     setRotate(0)
-  //   }, 100)
-
-  // }
 
   function changeIntro(e) {
     //clear timeOut
@@ -62,10 +51,7 @@ function Intro({ setPage }) {
     // animate intro
     var now = intro.id;
     var next = id;
-    // if (now > next) setRotate(rotate - 10)
-    // else if (now < next) setRotate(rotate + 10)
-    // else setRotate(0)
-
+    (now > next) ? setRotateDir(-100) : setRotateDir(100);
   }
 
   const streamIntro = setTimeout(() => {
@@ -83,9 +69,7 @@ function Intro({ setPage }) {
   return(
     <div className="Intro">
 
-      {/* <motion.div initial={{ rotate: 0 }} animate={{ rotate: rotate }} className="Intro-intro"> */}
-      <motion.div key={ intro.id } initial={{ rotate: -10 }} animate={{ rotate: 0 }} className="Intro-intro">
-      {/* 이 부분은 조건문을 써서 다시 만들자! useState까지 쓸 필요는 없을 거 같다. */}
+      <motion.div key={ intro.id } initial={{ rotate: rotateDir }} animate={{ rotate: 0 }} className="Intro-intro">
 
         {Array.from(intro.title).map((letter, index) => {
           if (letter === ' ') return <br key={ index } />
