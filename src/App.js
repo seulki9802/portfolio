@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-// import { CSSTransition, SwitchTransition } from "react-transition-group";
-import { motion } from "framer-motion";
 import { useState } from 'react';
+import { motion } from "framer-motion";
 
 import './App.css';
 
@@ -13,15 +12,6 @@ import Contact from './page/Contact';
 
 function App() {
   const [page, setPage] = useState(0);
-  const [scale, setscale] = useState(0);
-
-  if (scale === 0) {
-
-    setTimeout(() => {
-      setscale(1)
-    }, 100)
-
-  }
 
   return (
     <div className="App">
@@ -31,9 +21,9 @@ function App() {
           
           <BrowserRouter>
 
-            <Links setPage={ setPage } scaleState={ [scale, setscale] } />
+            <Links setPage={ setPage } />
 
-            <motion.div initial={{ scale: 0 }} animate={{ scale: scale }} >
+            <motion.div key={ page } initial={{ scale: 0 }} animate={{ scale: 1 }} >
               <Routes>
                 <Route path='/' element={ <Intro setPage={ setPage }/> } />
                 <Route path='/me' element={ <Me /> } />
@@ -51,12 +41,10 @@ function App() {
   );
 }
 
-function Links({ setPage, scaleState }) {
+function Links({ setPage }) {
 
   function changePage(e) {
-    const [scale, setscale] = scaleState
     setPage(e.target.getAttribute('name'))
-    setscale(0)
   }
   return(
     <div className='App-links'>
@@ -71,17 +59,3 @@ function Links({ setPage, scaleState }) {
 }
 
 export default App;
-
-
-
-{/* <SwitchTransition mode={ 'out-in' }>
-
-  <CSSTransition
-    key={ page }
-    addEndListener={(node, done) => node.addEventListener("transitionend", done, false)}
-    classNames="App-pageTransition"
-  >
-
-  </CSSTransition>
-
-</SwitchTransition> */}
