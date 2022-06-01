@@ -39,7 +39,6 @@ function Intro({ setPage }) {
 
   const [intro, setIntro] = useState(intros[0])
   // const [rotate, setRotate] = useState(0)
-  const [buttonActive, setButtonActive] = useState(['Intro-active', '', '', ''])
   
   document.querySelector('body').style.backgroundColor = intro.background;
 
@@ -60,12 +59,6 @@ function Intro({ setPage }) {
     var id = parseInt(e.target.getAttribute('name'));
     setIntro(intros[id])
 
-
-    // change button
-    var ls = ['', '', '', ''];
-    ls[id] = 'Intro-active';
-    setButtonActive(ls)
-    
     // animate intro
     var now = intro.id;
     var next = id;
@@ -109,10 +102,13 @@ function Intro({ setPage }) {
 
         {intros.map( (intro_i) => {
 
+          var classes = 'Intro-button';
+          if (intro.id === intro_i.id) classes += ' Intro-active'
+
           return <button
                   key={ intro_i.id }
                   name={ intro_i.id }
-                  className={ 'Intro-button ' + buttonActive[intro_i.id]}
+                  className={ classes }
                   onClick={ changeIntro }
                 />
         })}
