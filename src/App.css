@@ -98,17 +98,21 @@ a {
   transition: 300ms;
 }
 
-.Intro-button:hover, .Intro-button-active, .Intro-link:hover {
-  background: linear-gradient(45deg,
-  white 25%, rgb(0, 0, 0, 0) 0, rgb(0, 0, 0, 0) 50%,
-  white 0, white 0%, rgb(0, 0, 0, 0) 0);
-  background-size:5px 5px;
-}
-
 .Intro-link {
   padding: calc(0.5vmin);
   border-radius: 10px;
   border: 1px solid;
+  transition: 300ms;
+}
+
+.Intro-button:hover, .Intro-button-active, .Intro-link:hover {
+  
+  /* background: linear-gradient(45deg,
+  white 25%, rgb(0, 0, 0, 0) 0, rgb(0, 0, 0, 0) 50%,
+  white 0, white 0%, rgb(0, 0, 0, 0) 0);
+  background-size:5px 5px; */
+  
+  background-color: rgba(255, 255, 255, 0.59);
 }
 
 .Intro-logo {
