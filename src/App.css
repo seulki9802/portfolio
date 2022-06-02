@@ -1,42 +1,28 @@
 body {
-  /* background-color: #F6F6F6; */
-  /* background-color: #282c34; */
-  /* background-color: #61dafb; */
-  /* background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%); */
-  /* background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); */
-  /* color: #8785A2; */
   color: #F6F6F6
 }
 
 a {
   text-decoration: none;
   color: #F6F6F6
-  /* color: #FFC7C7; */
 }
+
+
+
 
 .App {
   text-align: center;
 }
 
 .App-header {
-  /* background-color: #F6F6F6; */
-  /* background-color: #282c34; */
-
-  /* background: linear-gradient(180deg, #DEFCF9, #CCA8E9); */
-  /* background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%); */
-  /* background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%); */
-  /* background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); */
-  
   min-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(15px + 2vmin);
-  /* color: #8785A2; */
 
   margin-top: 5vh;
-  /* margin-bottom: 5vh; */
   margin-left: 10vw;
   margin-right: 10vw;
 }
@@ -54,15 +40,12 @@ a {
 }
 
 .App-links li {
-  /* color: #61dafb; */
-  /* color: #8785A2; */
   display: inline;
   margin-right: 20px;
 }
 
 .App-pageTransition-enter {
   opacity: 0;
-  /* transform: translateY(100%); */
 }
 
 .App-pageTransition-enter-active {
@@ -98,11 +81,6 @@ a {
   transition: 300ms;
 }
 
-.Intro-title-hover {
-    color: #8785A2;
-  transform: scale(1.5);
-}
-
 .Intro-title:hover {
   color: #8785A2;
   transform: scale(1.5);
@@ -120,14 +98,18 @@ a {
   transition: 300ms;
 }
 
-.Intro-active {
-  background-color: white;
+.Intro-button:hover, .Intro-button-active, .Intro-link:hover {
+  background: linear-gradient(45deg,
+  white 25%, rgb(0, 0, 0, 0) 0, rgb(0, 0, 0, 0) 50%,
+  white 0, white 0%, rgb(0, 0, 0, 0) 0);
+  background-size:5px 5px;
 }
 
-.Intro button:hover {
-  background-color: white;
+.Intro-link {
+  padding: calc(0.5vmin);
+  border-radius: 10px;
+  border: 1px solid;
 }
-
 
 .Intro-logo {
   height: 10vmin;
@@ -185,9 +167,7 @@ a {
 }
 
 .Me-item {
-  /* background-color: #282c34; */
   text-align: left;
-  /* font-size: calc(10px + 2vmin); */
 }
 
 
@@ -214,13 +194,11 @@ a {
 }
 
 .Project-item {
-  
-  /* background: rgb(255, 255, 255); */
-  background-color: #282c34;
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
   
   margin: 3vw;
-  color: #61dafb;
+  color: #D59BF6;
   display: flex;
   flex-direction: column;
   align-items: center;
