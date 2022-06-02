@@ -11,7 +11,7 @@ import Contact from './page/Contact';
 
 
 function App() {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState('/');
 
   return (
     <div className="App">
@@ -43,17 +43,16 @@ function App() {
 
 function Links({ setPage }) {
 
-  function changePage(e) {
-    setPage(e.target.getAttribute('name'))
-  }
   return(
     <div className='App-links'>
-      <ul onClick={ changePage }>
-        <Link to='/' ><li name='0'>zero</li></Link>
-        <Link to='/me' ><li name='1'>first</li></Link>
-        <Link to='/project' ><li name='2'>second</li></Link>
-        <Link to='/contact' ><li name='3'>third</li></Link> 
+
+      <ul onClick={ (e) => setPage(e.target.getAttribute('href')) }>
+        <li><Link to='/'>home</Link></li>
+        <li><Link to='/me'>about</Link></li>
+        <li><Link to='/project'>project</Link></li>
+        <li><Link to='/contact'>contact</Link></li>
       </ul>
+
     </div>
   )
 }
