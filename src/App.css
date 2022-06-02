@@ -222,7 +222,7 @@ a {
 }
 
 .Project-show-before {
-  left: 10vw
+  left: 10vw;
 }
 
 .Project-show-after {
@@ -232,10 +232,6 @@ a {
 .Project-show-exit {
   top: 15vh;
   right: 10vw;
-}
-
-.Project-show-before:hover, .Project-show-after:hover, .Project-show-exit:hover {
-  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .Project-item {
@@ -250,4 +246,10 @@ a {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+}
+
+.Project-show-before:hover, .Project-show-after:hover, .Project-show-exit:hover, .Project-item:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  /* scale: 1.1; */
+  transition: 300ms;
 }

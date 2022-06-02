@@ -2,38 +2,38 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from "framer-motion";
 
-function Intro({ setPage }) {
+const intros = [
+  {
+    id : 0,
+    title: 'HELLO! I\'M SEULKI',
+    description: 'Hi, I\'m SeulKi',
+    link : '/me',
+    background: '#FFD5E5'
+  },
+  {
+    id : 1,
+    title: 'ABOUT ME',
+    description: 'Hi, I\'m SeulKi',
+    link : '/me',
+    background: '#9896F1'
+  },
+  {
+    id : 2,
+    title: 'MY PROJECTS!',
+    description: 'I studied Python, JS, HTML, React, NodeJs',
+    link : '/project',
+    background: '#D59BF6'
+  },
+  {
+    id : 3,
+    title: 'INTERESTED?',
+    description: 'Contac me!',
+    link : '/contact',
+    background: '#EDB1F1'
+  }
+]
 
-  const intros = [
-    {
-      id : 0,
-      title: 'HELLO! I\'M SEULKI',
-      description: 'Hi, I\'m SeulKi',
-      link : '/me',
-      background: '#FFD5E5'
-    },
-    {
-      id : 1,
-      title: 'ABOUT ME',
-      description: 'Hi, I\'m SeulKi',
-      link : '/me',
-      background: '#9896F1'
-    },
-    {
-      id : 2,
-      title: 'MY PROJECTS!',
-      description: 'I studied Python, JS, HTML, React, NodeJs',
-      link : '/project',
-      background: '#D59BF6'
-    },
-    {
-      id : 3,
-      title: 'INTERESTED?',
-      description: 'Contac me!',
-      link : '/contact',
-      background: '#EDB1F1'
-    }
-  ]
+function Intro({ setPage }) {
 
   const [intro, setIntro] = useState(intros[0]);
   const [rotateDir, setRotateDir] = useState(100);
@@ -51,7 +51,7 @@ function Intro({ setPage }) {
     // animate intro
     var now = intro.id;
     var next = id;
-    (now > next) ? setRotateDir(-100) : setRotateDir(100);
+    (now < next) ? setRotateDir(100) : setRotateDir(-100);
   }
 
   const streamIntro = setTimeout(() => {
@@ -77,8 +77,7 @@ function Intro({ setPage }) {
         })}
 
         <p>{ intro.description }</p>
-
-        <Link to={ intro.link } className='Intro-link'>Lear More</Link>
+        <Link to={ intro.link } className='Intro-link' onClick={ () => setPage(intro.link) }>Lear More</Link>
 
       </motion.div>
 
@@ -87,7 +86,7 @@ function Intro({ setPage }) {
         {intros.map( (intro_i) => {
 
           var classes = 'Intro-button';
-          if (intro.id === intro_i.id) classes += ' Intro-active'
+          if (intro.id === intro_i.id) classes += ' Intro-button-active'
 
           return <button
                   key={ intro_i.id }
