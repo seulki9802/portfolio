@@ -70,11 +70,12 @@ function Intro({ setPage }) {
     <div className="Intro">
 
       <motion.div key={ intro.id } initial={{ rotate: rotateDir }} animate={{ rotate: 0 }} className="Intro-intro">
-
-        {Array.from(intro.title).map((letter, index) => {
-          if (letter === ' ') return <br key={ index } />
-          return <span key={ index } className='Intro-title' id={ intro.title + index }>{ letter }</span>
-        })}
+        <div>
+          {Array.from(intro.title).map((letter, index) => {
+            if (letter === ' ') return <br key={ index } />
+            return <span key={ index } className='Intro-title' id={ intro.title + index }>{ letter }</span>
+          })}
+        </div>
 
         <p>{ intro.description }</p>
         <Link to={ intro.link } className='Intro-link' onClick={ () => setPage(intro.link) }>Lear More</Link>
