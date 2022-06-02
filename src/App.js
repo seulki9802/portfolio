@@ -1,6 +1,7 @@
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from "framer-motion";
+import $ from 'jquery';
 
 import './App.css';
 
@@ -26,7 +27,7 @@ function App() {
             <motion.div key={ page } initial={{ scale: 0 }} animate={{ scale: 1 }} >
               <Routes>
                 <Route path='/' element={ <Intro setPage={ setPage }/> } />
-                <Route path='/me' element={ <Me /> } />
+                <Route path='/about' element={ <Me /> } />
                 <Route path='/contact' element={ <Contact /> } />
                 <Route path='/project' element={ <Project /> }></Route>
               </Routes>
@@ -43,12 +44,18 @@ function App() {
 
 function Links({ setPage }) {
 
+  function changePage(e) {
+    $('a').removeClass('App-link-active')
+    e.target.className += ' App-link-active'
+    setPage(e.target.getAttribute('href'));
+  }
+  
   return(
     <div className='App-links'>
 
-      <ul onClick={ (e) => setPage(e.target.getAttribute('href')) }>
-        <li><Link to='/'>home</Link></li>
-        <li><Link to='/me'>about</Link></li>
+      <ul onClick={ changePage }>
+        <li><Link to='/' className='App-link-active'>home</Link></li>
+        <li><Link to='/about'>about</Link></li>
         <li><Link to='/project'>project</Link></li>
         <li><Link to='/contact'>contact</Link></li>
       </ul>
@@ -58,3 +65,26 @@ function Links({ setPage }) {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const pages = [
+//   { name: 'home', link: '/' },
+//   { name: 'about', link: '/about' },
+//   { name: 'project', link: '/project' },
+//   { name: 'contact', link: '/contact' }
+// ]
+
+        {/* {pages.map((page_i) => {
+          return <li key={ page_i.name }><Link to={ page_i.link }>{ page_i.name }</Link></li>
+        })} */}

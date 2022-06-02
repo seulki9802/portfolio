@@ -5,10 +5,9 @@ body {
 a {
   text-decoration: none;
   color: #F6F6F6;
+  font-weight: bold;
+  transition: 1000ms;
 }
-
-
-
 
 .App {
   text-align: center;
@@ -42,6 +41,13 @@ a {
 .App-links li {
   display: inline;
   margin-right: 20px;
+}
+
+.App-link-active, .App-links a:hover {
+  /* text-decoration: overline;
+  text-decoration-style: dashed; */
+  color: #8785a27b;
+  transition: 300ms;
 }
 
 .App-pageTransition-enter {
