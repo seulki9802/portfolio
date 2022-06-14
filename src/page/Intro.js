@@ -7,14 +7,14 @@ const intros = [
     id : 0,
     title: 'HELLO! I\'M SEULKI',
     description: 'Hi, I\'m SeulKi',
-    link : '/me',
+    link : '/about',
     background: '#FFD5E5'
   },
   {
     id : 1,
     title: 'ABOUT ME',
     description: 'Hi, I\'m SeulKi',
-    link : '/me',
+    link : '/about',
     background: '#9896F1'
   },
   {
