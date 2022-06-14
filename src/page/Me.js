@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from "framer-motion";
 import me_love from '../assets/me_love.tiff'
 
+
   
 function Me() {
 
@@ -20,20 +21,20 @@ function MyInfo() {
 
   const infos = [
     {
-      title: '출생의 비밀',
-      contents: '어쩌고 저쩍고 25살',
+      title: 'Profil🗒',
+      contents: '출생: 1998.02.24.\n학력: 조선대학교 졸업(2022. 02.)',
     },
     {
-      title: '이거 조아',
-      contents: '뽀짝한 거 조아 귀여운 거 조아 해결하는 거 조아~ 관찰 국ㄱ~~',
+      title: 'Skills⚒️',
+      contents: 'Node.js, JavaScript, React, MongoDB',
     },
     {
-      title: '성장시켜줘',
-      contents: '나 이런 거 잘 하니까 데꼬가',
+      title: 'LOVE🤍',
+      contents: '문제를 해결 하는 것을 좋아합니다.\n 타인의 필요성을 충족하는 것을 좋아합니다.',
     },
     {
-      title: '보자보자',
-      contents: '내가 만든 부끄러운 작품들을 봐줘..',
+      title: 'Why WEB?🖥',
+      contents: '\v 웹은 아주 매력적인 도구입니다. 타인과 쉽게 연결될 수 있으며 우리는 그들의 요구에 반응할 수 있습니다.\n\n\v 저는 웹을 통해 사용자에게 다양하고 다채로운 경험을 제공하고 싶습니다. 사용자의 문제에 귀 기울여 이를 해결하고 양질의 서비스를 제공하는 웹 개발자를 꿈 꿉니다.',
     },
   ]
 
@@ -69,7 +70,7 @@ function MyInfo() {
         {infos.map((info, index) => (
         <motion.li key={index} className="Me-item" variants={item}>
           <h4>{ info.title }</h4>
-          <p>{ info.contents }</p>
+          <p style={ { whiteSpace: 'pre-line' }}>{ info.contents }</p>
         </motion.li>
         ))}
       </motion.ul>
@@ -87,11 +88,11 @@ function Header({ setShow }) {
         whileHover={{ scale: 1.2, rotate: 30 }}
         whileTap={{ scale: 0.8, rotate: -180, borderRadius: "100%" }}
       >
-        <img src={ me_love } alt="me" />
+        <img src={ me_love } onClick={ () => setShow(true) } alt="me" />
       </motion.div>
 
       <p>나에대해 알아볼램!?</p>
-      <button onClick={ () => setShow(true) }>GO</button>
+      <span onClick={ () => setShow(true) }>GO</span>
     </div>
   )
 
