@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 import $ from 'jquery';
 
@@ -12,7 +12,19 @@ import Contact from './page/Contact';
 
 
 function App() {
-  const [page, setPage] = useState('/');
+
+  const [page, setPage] = useState(window.location.pathname);
+
+  //페이지 바뀔 때 Link 활성화 시키기
+  useEffect(() => {
+    var links = $('a')
+  
+    links.map((i) => {
+      var link = links[i]
+      link.className -= ' App-link-active'
+      if (link.getAttribute('href') === page) link.className += ' App-link-active'
+    })
+  },[page])
 
   return (
     <div className="App">
@@ -45,8 +57,6 @@ function App() {
 function Links({ setPage }) {
 
   function changePage(e) {
-    $('a').removeClass('App-link-active')
-    e.target.className += ' App-link-active'
     setPage(e.target.getAttribute('href'));
   }
   
@@ -54,7 +64,7 @@ function Links({ setPage }) {
     <div className='App-links'>
 
       <ul onClick={ changePage }>
-        <li><Link to='/' className='App-link-active'>home</Link></li>
+        <li><Link to='/'>home</Link></li>
         <li><Link to='/about'>about</Link></li>
         <li><Link to='/project'>project</Link></li>
         <li><Link to='/contact'>contact</Link></li>
