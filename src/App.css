@@ -336,3 +336,64 @@ a {
   background-color: rgba(255, 255, 255, 0.5);
   scale: 1.03;
 }
+
+
+
+.Contact {
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 20px;
+
+  background-color: rgba(0, 0, 0, 0.085);
+}
+
+.Contact-sendForm {
+  text-align: left;
+}
+
+.Contact form {
+  margin-top: 20px;
+  padding: 13px;
+
+  /* background-color: rgba(0, 0, 0, 0.085); */
+  border-radius: 10px;
+}
+
+.Contact input, textarea, button {
+
+  font-size: calc(5px + 2vmin);
+
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid;
+  
+  color: white;
+  background-color: rgba(255, 255, 255, 0.194);
+}
+
+.Contact textarea {
+  width: 400px;
+  height: 200px;
+}
+
+.Contact img {
+  position: absolute;
+  top: calc(50vh - 128px);
+  right: calc(50vw - 128px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Contact img {
+    animation: Contact-loading-spin infinite 5s linear;
+  }
+}
+
+
+@keyframes Contact-loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
