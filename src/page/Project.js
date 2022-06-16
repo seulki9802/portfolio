@@ -143,8 +143,11 @@ function ProjectShow({ setShow, setProject, project }) {
 
         <h1>{ project.title }</h1>
 
-        <img src={ img.img } alt={ project.title } />
-        <button onClick={ nextImg }>next</button>
+        <div className='Project-show-image'>
+          <img src={ img.img } alt={ project.title } />
+          <span> {img.id + 1}/{project.img.length}</span><br/>
+          <button onClick={ nextImg }>다음 이미지 보기</button>
+        </div>
         
 
         <div className='Project-show-go'>
@@ -155,9 +158,9 @@ function ProjectShow({ setShow, setProject, project }) {
         <p>{ project.skills }</p>
         <p style={ { whiteSpace: 'pre-line', textAlign: 'left' } }>{ project.description }</p>
 
-        <button className='Project-show-prev' onClick={ prev }>-</button>
-        <button className='Project-show-next' onClick={ next }>+</button>
-        <button className='Project-show-exit' onClick={ () => setShow(false) }>x</button>
+        <button className='Project-show-prev' onClick={ prev }>←</button>
+        <button className='Project-show-next' onClick={ next }>→</button>
+        <button className='Project-show-exit' onClick={ () => setShow(false) }>✕</button>
 
       </motion.div>
 

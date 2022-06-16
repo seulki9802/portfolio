@@ -46,21 +46,25 @@ function SendForm({ setSend, setAni }) {
 
     emailjs.sendForm('service_fgsbbyw', 'template_jb8hsd9', form.current, 'M4s4XNaZC9f3Y9Adq')
       .then((result) => {
-          console.log(result.text);
-          setAni(1);
-          setSend(true);
+        setAni(1);
+        setSend(true);
       }, (error) => {
-          console.log(error.text);
+        setAni(1);
+        alert('\a error! 다시 한번 시도해 주세요..')
       });
   };
 
   return (
     <div className='Contact-sendForm'>
-      <h3>Contact me</h3>
+      <h2>Contact me!</h2>
 
+      저의 포트폴리오를 방문해주셔서 감사합니다! 연락을 바라신다면, 아래와 같은 수단을 통해 연락 주시면 빠른 시일 내로 답장 드리겠습니다.<br/><br/>
+
+      <h4>연락처</h4>
       📞 010.4630.6401<br/>
-      ✉️ seulki9802@gmail.com
+      ✉️ seulki9802@gmail.com<br/><br/>
 
+      <h4>메일 보내기</h4>
       <form ref={form} onSubmit={sendEmail}>
         <label>Name</label><br/>
         <input type="text" name="user_name" /><br/>
@@ -68,7 +72,7 @@ function SendForm({ setSend, setAni }) {
         <input type="email" name="user_email" /><br/>
         <label>Message</label><br/>
         <textarea name="message" /><br/>
-        <input type="submit" value="Send" />
+        <button type="submit">send</button>
       </form>
     </div>
   );

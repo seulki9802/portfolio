@@ -6,6 +6,24 @@ a {
   text-decoration: none;
   color: #F6F6F6;
   font-weight: bold;
+  font-size: calc(10px + 2vmin);
+}
+
+button {
+  font-size: calc(10px + 2vmin);
+
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid;
+  
+  color: white;
+  background-color: rgb(0, 0, 0, 0);
+}
+
+button:hover {
+  transition: 300ms;
+  background-color: rgba(255, 255, 255, 0.59);
+  cursor: pointer;
 }
 
 .App {
@@ -18,7 +36,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
 
   margin-top: 5vh;
   margin-left: 10vw;
@@ -70,7 +88,9 @@ a {
 
 
 
-
+.Intro {
+  font-size: calc(20px + 2vmin);
+}
 
 .Intro-intro {
   margin-top: 3vw;
@@ -79,7 +99,7 @@ a {
 
 .Intro-title {
   display: inline-block;
-  font-size: calc(90px + 2vmin);
+  font-size: calc(100px + 2vmin);
   font-weight: bold;
   transition: 300ms;
 }
@@ -98,18 +118,17 @@ a {
   background-color: rgb(0, 0, 0, 0);
   margin-left: 1vw;
   margin-right: 1vw;
-  transition: 300ms;
 }
 
 .Intro-link {
+  font-size: calc(10px + 2vmin);
   padding: calc(0.5vmin);
   border-radius: 10px;
   border: 1px solid;
-  transition: 300ms;
 }
 
 .Intro-button:hover, .Intro-button-active, .Intro-link:hover {
-  
+  transition: 300ms;
   background-color: rgba(255, 255, 255, 0.59);
 }
 
@@ -157,21 +176,44 @@ a {
 
 
 
-.Me img {
-  height: 30vh;
+
+.Me-header img {
+  height: 40vh;
+
+  border: 6px solid;
+  border-radius: 10px;
 }
 
-.Me-container {
+.Me-header img, .Me-header h4:hover {
+  cursor: pointer;
+}
+
+.Me-info img {
+  position: absolute;
+  top: 20vh;
+  right: 10vw;
+
+  height: 50vw;
+  max-height: 600px;
+
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* For IE8 and earlier */
+
+  z-index: -1;
+}
+
+.Me-info-ul {
   list-style: none;
   padding: 15px;
 }
 
-.Me-item {
+.Me-info-li {
   text-align: left;
 }
 
-
-
+.Me-info-back {
+  float: right;
+}
 
 
 
@@ -204,7 +246,7 @@ a {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
 
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
 
   transition: 300ms;
 }
@@ -217,9 +259,10 @@ a {
   border-radius: 10px;
 }
 
-/* .Project-item p { */
-  /* font-size: calc(2px + 2vmin); */
-/* } */
+.Project-item:hover {
+  cursor: pointer;
+}
+
 
 /* 조금 작은 화면 */
 @media(max-width: 1050px) {
@@ -272,11 +315,34 @@ a {
   }
 }
 
-.Project-show-container img{
+.Project-show-image img{
   width: 30vh;
   height: 30vh;
+
   border: 6px solid;
   border-radius: 10px;
+}
+
+.Project-show-image span {
+  background-color: rgba(0, 0, 0, 0.085);
+
+  position: absolute;
+  right: calc((100vw - 30vh) / 2);
+
+  padding: 8px;
+  margin-top: 6px;
+
+  font-size: 15px;
+  width: 20px;
+  height: 20px;
+
+  font-weight: bold;
+}
+
+.Project-show-image button {
+  background-color: rgba(0, 0, 0, 0.085);
+  border: none;
+  font-size: 15px;
 }
 
 .Project-show-go img {
@@ -290,11 +356,10 @@ a {
   position: absolute;
   font-size: calc(20px + 2vmin);
 
-  width: 40px;
-  height: 40px;
+  width: 60px;
   color: white;
-  border: none;
   border-radius: 10px;
+  border: none;
   background-color: rgb(0, 0, 0, 0);
 
   margin-left: 2vw;
@@ -339,10 +404,21 @@ a {
 
 
 
+
+
+
+
+
 .Contact {
   border-radius: 10px;
   border: 1px solid;
-  padding: 20px;
+
+  padding: 50px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+
+  width: 60vw;
+  max-width: 550px;
 
   background-color: rgba(0, 0, 0, 0.085);
 }
@@ -352,16 +428,14 @@ a {
 }
 
 .Contact form {
-  margin-top: 20px;
-  padding: 13px;
+  padding-top: 0px;
 
-  /* background-color: rgba(0, 0, 0, 0.085); */
   border-radius: 10px;
 }
 
-.Contact input, textarea, button {
+.Contact input, textarea {
 
-  font-size: calc(5px + 2vmin);
+  font-size: calc(3px + 2vmin);
 
   padding: 10px;
   border-radius: 10px;
@@ -372,19 +446,20 @@ a {
 }
 
 .Contact textarea {
-  width: 400px;
+  width: calc(100%  - 20px);
   height: 200px;
 }
 
 .Contact img {
   position: absolute;
-  top: calc(50vh - 128px);
-  right: calc(50vw - 128px);
+  width: 64px;
+  top: calc(50vh - 64px / 2);
+  right: calc(50vw - 64px / 2);
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .Contact img {
-    animation: Contact-loading-spin infinite 5s linear;
+    animation: Contact-loading-spin infinite 3s linear;
   }
 }
 

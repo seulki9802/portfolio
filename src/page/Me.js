@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { motion } from "framer-motion";
-import me_love from '../assets/me_love.tiff'
+import me_love from '../assets/me_love.jpeg'
+import me_smile from '../assets/me_smile.JPG'
+
 
 
   
@@ -12,12 +14,12 @@ function Me() {
 
   return (
     <div className="Me">
-      { show ? <MyInfo /> : <Header setShow={ setShow } /> }
+      { show ? <MyInfo setShow={ setShow } /> : <Header setShow={ setShow } /> }
     </div>
   );
 }
 
-function MyInfo() {
+function MyInfo({ setShow }) {
 
   const infos = [
     {
@@ -34,7 +36,7 @@ function MyInfo() {
     },
     {
       title: 'Why WEB?🖥',
-      contents: '\v 웹은 아주 매력적인 도구입니다. 타인과 쉽게 연결될 수 있으며 우리는 그들의 요구에 반응할 수 있습니다.\n\n\v 저는 웹을 통해 사용자에게 다양하고 다채로운 경험을 제공하고 싶습니다. 사용자의 문제에 귀 기울여 이를 해결하고 양질의 서비스를 제공하는 웹 개발자를 꿈 꿉니다.',
+      contents: '\v 웹은 아주 매력적인 도구입니다. 타인과 쉽게 연결될 수 있으며 우리는 그들의 요구에 반응할 수 있습니다.\n\n\v 우리는 클라이언트에게 문서를 전달할 뿐 아니라 다양한 서비스를 제공하고 그들의 필요성을 충족하고 더 나아가 새로운 경험을 줄 수 있습니다.\n\n\v 저는 서버로서 다양한 클라이언트들을 만나며 그들의 필요성 충족에 도움이 되고 싶습니다. 그들의 문제에 귀 기울여 이를 해결하고 보완하도록 할 것이며 그 결과에 섬세함을 더해 클라이언트에게 보다 다채롭고 경험적인 서비스를 제공하는 웹 개발자를 꿈 꿉니다.',
     },
   ]
 
@@ -61,18 +63,24 @@ function MyInfo() {
   return(
     <div className="Me-info">
 
+      <img src={ me_love } alt="me" />
+
       <motion.ul
-        className="Me-container"
+        className="Me-info-ul"
         variants={container}
         initial="hidden"
         animate="visible"
       >
+
         {infos.map((info, index) => (
-        <motion.li key={index} className="Me-item" variants={item}>
+        <motion.li key={index} className="Me-info-li" variants={item}>
           <h4>{ info.title }</h4>
           <p style={ { whiteSpace: 'pre-line' }}>{ info.contents }</p>
         </motion.li>
         ))}
+
+        <button className='Me-info-back' onClick={ () => setShow(false) }>⏎</button>
+
       </motion.ul>
     </div>
   )
@@ -83,16 +91,14 @@ function Header({ setShow }) {
 
   return(
     <div className='Me-header'>
+
       
-      <motion.div
-        whileHover={{ scale: 1.2, rotate: 30 }}
-        whileTap={{ scale: 0.8, rotate: -180, borderRadius: "100%" }}
-      >
-        <img src={ me_love } onClick={ () => setShow(true) } alt="me" />
+      <motion.div whileHover={{ scale: 1.15 }}>
+        <img src={ me_smile } onClick={ () => setShow(true) } alt="me" />
       </motion.div>
 
-      <p>나에대해 알아볼램!?</p>
-      <span onClick={ () => setShow(true) }>GO</span>
+      <h1> Who Am I?</h1>
+      <motion.h4 whileHover={{ scale: 1.5 }} onClick={ () => setShow(true) }>click me!</motion.h4>
     </div>
   )
 

@@ -6,21 +6,21 @@ const intros = [
   {
     id : 0,
     title: 'HELLO! I\'M SEULKI',
-    description: 'Hi, I\'m SeulKi',
+    description: 'I am a web developer',
     link : '/about',
     background: '#FFD5E5'
   },
   {
     id : 1,
     title: 'ABOUT ME',
-    description: 'Hi, I\'m SeulKi',
+    description: 'I Love Problems',
     link : '/about',
     background: '#9896F1'
   },
   {
     id : 2,
     title: 'MY PROJECTS!',
-    description: 'I studied Python, JS, HTML, React, NodeJs',
+    description: 'I studied HTML/CSS, JavaScript, React, Node.js, MongoDB',
     link : '/project',
     background: '#D59BF6'
   },
