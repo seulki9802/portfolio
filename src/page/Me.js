@@ -28,7 +28,7 @@ function MyInfo({ setShow }) {
     },
     {
       title: 'Skills⚒️',
-      contents: 'Node.js, JavaScript, React, MongoDB',
+      contents: 'HTML/CSS, Node.js, JavaScript, React, MongoDB',
     },
     {
       title: 'LOVE🤍',

@@ -179,6 +179,7 @@ button:hover {
 
 .Me-header img {
   height: 40vh;
+  max-height: 400px;
 
   border: 6px solid;
   border-radius: 10px;
