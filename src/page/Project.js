@@ -71,7 +71,7 @@ const projects = [
     title: 'Portfolio',
     link: 'http://localhost:3000',
     git: 'https://github.com/seulki9802/portfolio',
-    introduction: 'portfolio',
+    introduction: '유슬기의 포트폴리오입니다.',
     skills: 'JavaScript, React, Node.js, MongoDB, CSS',
     description: '\v 저의 가치관과 개성을 담을 수 있는 페이지를 만들었습니다.\n\n\v 저에게 웹 페이지란 가독성 좋은 문서이자 사용자가 경험할 수 있는 문서입니다. 기존의 문서들은 페이지들 간의 상호작용이 어렵다는 단점이 있습니다. 그러나 웹은 이를 극복하고 많은 문서를 보다 구조적으로 손 쉽게 열람할 수 있도록 합니다.\n\n\v 이를 위해 저는 페이지를 여러 개로 나누고 페이지간의 이동이 용이하도록 하며 애니메이션을 추가하여 사용자의 경험에 도움이 될 수 있도록 구성하였습니다. \n\n\v React를 처음 공부하며 만든 프로젝트이며 페이지를 나누고 요소들을 나누면서 React를 공부하고 React의 장점과 단점을 경험할 수 있는 프로젝트였습니다.',
     img: [ { id: 0, img: project2 }, { id: 1, img: project21 }, { id: 2, img: project22 }, { id: 3, img: project23 } ]
