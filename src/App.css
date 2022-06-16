@@ -303,7 +303,6 @@ button:hover {
   align-items: center;
   justify-content: center;
 
-  /* width: 70vw; */
   width: 800px;
   min-height: 75vh;
   
@@ -316,7 +315,7 @@ button:hover {
 }
 
 /* 조금 작은 화면 */
-@media(max-width: 90px) {
+@media(max-width: 900px) {
   .Project-show-container {
     width: 70vw;
   }
