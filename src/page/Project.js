@@ -151,8 +151,8 @@ function ProjectShow({ setShow, setProject, project }) {
         
 
         <div className='Project-show-go'>
-          <a href={ project.link } ><img src={ home } alt='home' /></a>
-          <a href={ project.git } ><img src={ git } alt='git' /></a>
+          <a href={ project.link } target='_blank' rel='noopener noreferrer'><img src={ home } alt='home' /></a>
+          <a href={ project.git } target='_blank' rel='noopener noreferrer'><img src={ git } alt='git' /></a>
         </div>
 
         <p>{ project.skills }</p>

@@ -99,7 +99,7 @@ button:hover {
 
 .Intro-title {
   display: inline-block;
-  font-size: calc(100px + 2vmin);
+  font-size: calc(95px + 2vmin);
   font-weight: bold;
   transition: 300ms;
 }
@@ -179,7 +179,7 @@ button:hover {
 
 .Me-header img {
   height: 40vh;
-  max-height: 400px;
+  max-height: 360px;
 
   border: 6px solid;
   border-radius: 10px;
@@ -214,6 +214,12 @@ button:hover {
 
 .Me-info-back {
   float: right;
+}
+
+.Me-info a {
+  font-size: calc(5px + 2vmin);
+  font-weight: normal;
+  text-decoration: underline;
 }
 
 
@@ -310,7 +316,7 @@ button:hover {
 }
 
 /* 조금 작은 화면 */
-@media(max-width: 1000px) {
+@media(max-width: 90px) {
   .Project-show-container {
     width: 70vw;
   }

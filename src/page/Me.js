@@ -27,6 +27,10 @@ function MyInfo({ setShow }) {
       contents: '출생: 1998.02.24.\n학력: 조선대학교 졸업(2022. 02.)',
     },
     {
+      title: 'GitHub📔',
+      link: 'https://github.com/seulki9802'
+    },
+    {
       title: 'Skills⚒️',
       contents: 'HTML/CSS, Node.js, JavaScript, React, MongoDB',
     },
@@ -75,6 +79,7 @@ function MyInfo({ setShow }) {
         {infos.map((info, index) => (
         <motion.li key={index} className="Me-info-li" variants={item}>
           <h4>{ info.title }</h4>
+          {info.link? <a href={ info.link } target='_blank' rel='noopener noreferrer'>{ info.link }</a>: null }
           <p style={ { whiteSpace: 'pre-line' }}>{ info.contents }</p>
         </motion.li>
         ))}
