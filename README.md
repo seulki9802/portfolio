@@ -1,6 +1,6 @@
 # My Portfolio
 **유슬기의 포트폴리오입니다**
-- Skills: React, JavaScript, Node.js(express), MongoDB, CSS3
+- Skills: React, JavaScript, Node.js, MongoDB, CSS3
 - link: 
 
 ## Background
