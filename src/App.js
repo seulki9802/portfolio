@@ -31,7 +31,6 @@ function App() {
 
       <header className="App-header">
 
-          
           <BrowserRouter>
 
             <Links setPage={ setPage } />
@@ -45,8 +44,8 @@ function App() {
               </Routes>
             </motion.div>
 
-          </BrowserRouter>
 
+          </BrowserRouter>
 
       </header>
 
@@ -75,26 +74,3 @@ function Links({ setPage }) {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const pages = [
-//   { name: 'home', link: '/' },
-//   { name: 'about', link: '/about' },
-//   { name: 'project', link: '/project' },
-//   { name: 'contact', link: '/contact' }
-// ]
-
-        {/* {pages.map((page_i) => {
-          return <li key={ page_i.name }><Link to={ page_i.link }>{ page_i.name }</Link></li>
-        })} */}
