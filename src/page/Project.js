@@ -49,7 +49,7 @@ const projects = [
   {
     id: 0,
     title: 'Eat donut!',
-    link: 'http://localhost:8888',
+    link: 'http://seulki.duckdns.org:8888',
     git: 'https://github.com/seulki9802/game',
     introduction: '채소를 피해 도넛을 먹는 게임!',
     skills: 'HTML, JavaScript, Node.js, MongoDB', 
@@ -59,7 +59,7 @@ const projects = [
   {
     id: 1,
     title: 'BOARD',
-    link: 'http://localhost:7777',
+    link: 'http://seulki.duckdns.org:7777',
     git: 'https://github.com/seulki9802/board',
     introduction: '친구들과 함께 BOARD에 메모해 보세요!',
     skills: 'JavaScript, React, Node.js, socket.io, MongoDB, CSS',
@@ -69,7 +69,7 @@ const projects = [
   {
     id: 2,
     title: 'Portfolio',
-    link: 'http://localhost:3000',
+    link: 'http://seulki.duckdns.org',
     git: 'https://github.com/seulki9802/portfolio',
     introduction: '유슬기의 포트폴리오입니다.',
     skills: 'JavaScript, React, Node.js, MongoDB, CSS',
