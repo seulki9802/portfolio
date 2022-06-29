@@ -1,7 +1,7 @@
 # My Portfolio
 **유슬기의 포트폴리오입니다**
 - Skills: React, JavaScript, Node.js, MongoDB, CSS3
-- link: 
+- link: http://seulki.duckdns.org
 
 ## WHY
 **🗣내가 생각하는 웹 사이트를 만들어보자**
